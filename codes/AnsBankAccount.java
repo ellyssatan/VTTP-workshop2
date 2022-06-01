@@ -4,9 +4,9 @@ import java.util.*;
 
 public class AnsBankAccount {
     private String name = "";        // cannot change once set
-    private String accNum = UUID.randomUUID().toString().substring(0, 8);      // cannot be changed
-    private Float balance;
-    private List<String> transactions = new LinkedList<>();
+    private String accNum = UUID.randomUUID().toString().substring(0, 8);  // cannot be changed, random
+    private Float balance = 0f; // initiated to 0
+    private List<String> transactions = new LinkedList<>();     // must initialise, if not will be null
     private Integer startDate;
     private Integer endDate;
     private Boolean isOpen = false;

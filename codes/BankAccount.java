@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.UUID;
 
 public class BankAccount {
-    private String name;        // cannot change once set
-    private String accNum;      // cannot be changed
-    private Float balance;
+    private String name = "";        // cannot change once set
+    private String accNum = UUID.randomUUID().toString().substring(0, 8);      // cannot be changed
+    private float balance = 0;
     private List<String> transactions = new LinkedList<>();
     private Integer startDate;
     private Integer endDate;
@@ -19,44 +19,43 @@ public class BankAccount {
     // constructor
     public BankAccount() {
         System.out.println("Accessing account");
-        UUID id = UUID.randomUUID();
-        String idAsString = id.toString();
-        setAccNum(idAsString.substring(0, 8));
-        System.out.println(idAsString.substring(0, 8));
 
     }
     public BankAccount(String name) {
-        this.balance = (float) 0;
+        this.name = name;
         isOpen = true;
     }
 
-    public BankAccount(String name, float balance) {
+    public BankAccount(String name, float initialBal) {
         this.name = name;
-        this.balance =  (float) 0;
+        this.balance = initialBal;
         System.out.printf("New account created for %s\n", name);
     }
 
     // getter & setter
     public String getName() {
-        //System.out.printf("New account created for %s\n", name);
+        System.out.printf("Name: %s\n", this.name);
         return name;
-    } /*
+    }
     public void setName(String name) {
         this.name = name;
-    } */
+    }
 
     public String getAccNum() {
-        return accNum;
+        System.out.printf("Account number for %s is %s\n", name, this.accNum);
+        return this.accNum;
     }
+    /*
     public void setAccNum(String accNum) {
         this.accNum = accNum;
     }
+    */
 
-    public Float getBalance() {
+    public float getBalance() {
         balance += amt;
         return balance;
     }
-    public void setBalance(Float balance) {
+    public void setBalance(float balance) {
         this.balance = balance;
     }
 
